@@ -2,8 +2,10 @@ import React from 'react';
 
 import { StackNavigator } from 'react-navigation';
 
-import MainScreen from './src/MainScreen'
+import LoginScreen from './src/LoginScreen'
+import MainScreen from "./src/MainScreen";
 
 export default StackNavigator({
-    Home: { screen: MainScreen },
+    Main: { screen: MainScreen },
+    Login: { screen: LoginScreen },
 });
