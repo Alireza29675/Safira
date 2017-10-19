@@ -26,11 +26,16 @@ const UserDataTabNavigator = TabNavigator({
     tabBarOptions: {
         activeTintColor: '#5fb5be',
         inactiveTintColor: '#999',
-        showIcon: 'true',
+        showIcon: true,
         showLabel: false,
+        pressColor: '#5fb5be',
         style: {
-            backgroundColor: '#F5F5F5'
-        }
+            backgroundColor: '#f5f5f5',
+        },
+        indicatorStyle: {
+            borderBottomColor: '#5fb5be',
+            borderBottomWidth: 3,
+        },
     },
 });
 

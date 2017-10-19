@@ -6,10 +6,10 @@ import {
     Text,
     Image,
     StyleSheet,
-    Platform,
     TouchableOpacity
 } from 'react-native';
 
+import QuickShowItem from './components/QuickShowItem'
 import UserDataTabNavigator from './components/UserDataTabNavigator'
 
 class MainScreen extends Component {
@@ -41,9 +41,9 @@ class MainScreen extends Component {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.quickShow}>
-                    <TouchableOpacity style={styles.quickShowItem}><Text>Badges</Text></TouchableOpacity>
-                    <TouchableOpacity style={styles.quickShowItem}><Text>Rank</Text></TouchableOpacity>
-                    <TouchableOpacity style={[styles.quickShowItem, styles.quickShowLastItem]}><Text>Score</Text></TouchableOpacity>
+                    <QuickShowItem amount={120} first title="badge" />
+                    <QuickShowItem amount={5} title="rank" />
+                    <QuickShowItem amount={5} last title="score" />
                 </View>
                 <View style={styles.tabsContainer}>
                     <UserDataTabNavigator style={styles.tabs} />
@@ -96,23 +96,16 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     quickShow: {
-        backgroundColor: 'white',
         borderWidth: 1,
         borderColor: '#CCC',
-        width: '80%',
+        width: '85%',
         height: 50,
         alignSelf: 'center',
         marginTop: 20,
         borderRadius: 12,
-        flexDirection: 'row'
-    },
-    quickShowItem: {
-        flex: 1,
-        borderRightColor: '#CCC',
-        borderRightWidth: 1
-    },
-    quickShowLastItem: {
-        borderRightWidth: 0
+        flexDirection: 'row',
+        backgroundColor: '#BBB',
+        overflow: 'hidden'
     },
 
     // Tabs
