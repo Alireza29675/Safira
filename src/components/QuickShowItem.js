@@ -48,18 +48,29 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRightColor: '#CCC',
-        backgroundColor: 'white',
-        flexDirection: 'row'
+        backgroundColor: '#fff',
+        flexDirection: 'row',
     },
     icon: {
         width: 28,
-        height: 28
+        height: 28,
+        marginRight: 10
     },
     text: {
-        fontSize: 20,
+        fontSize: 17,
         fontFamily: 'iransans',
-        top: 3,
-        marginRight: 3
+        fontWeight: 'bold',
+        alignSelf: 'center',
+        top: 2,
+        flexGrow: 1,
+        textAlign: 'center',
+        marginLeft: 10
+    },
+    linearGradient: {
+        flex: 1,
+        paddingLeft: 15,
+        paddingRight: 15,
+        borderRadius: 5
     }
 });
 

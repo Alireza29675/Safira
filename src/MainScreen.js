@@ -42,8 +42,8 @@ class MainScreen extends Component {
                 </View>
                 <View style={styles.quickShow}>
                     <QuickShowItem amount={120} first title="badge" />
-                    <QuickShowItem amount={5} title="rank" />
-                    <QuickShowItem amount={5} last title="score" />
+                    <QuickShowItem amount={1125} title="rank" />
+                    <QuickShowItem amount={250} last title="score" />
                 </View>
                 <View style={styles.tabsContainer}>
                     <UserDataTabNavigator style={styles.tabs} />
