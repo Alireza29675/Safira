@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import navigation from '../model/navigation'
 
 import {
     TouchableOpacity,
@@ -8,9 +9,13 @@ import {
 
 class CarListItem extends Component {
 
+    goToCarPage () {
+        navigation.main.navigate('Car', { id: this.props.id, title: this.props.title })
+    }
+
     render() {
         return (
-            <TouchableOpacity activeOpacity={0.8} style={styles.container}>
+            <TouchableOpacity activeOpacity={0.8} style={styles.container} onPress={this.goToCarPage.bind(this)}>
                 <Text style={styles.number}>{this.props.number}</Text>
                 <Text style={styles.title}>{this.props.title}</Text>
             </TouchableOpacity>

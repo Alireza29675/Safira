@@ -13,41 +13,63 @@ import {
 import QuickShowItem from './components/QuickShowItem'
 import UserDataTabNavigator from './components/UserDataTabNavigator'
 
+import user from './model/user'
+import navigation from './model/navigation'
+import {isOffline} from "./model/server";
+
 class MainScreen extends Component {
     static navigationOptions = {
         title: 'Home',
         header: null
     };
 
+    constructor (props) {
+        super(props);
+        this.state = {
+            user: {}
+        };
+        navigation.main = this.props.navigation;
+    }
+
+    componentWillMount () {
+        // Auth check
+        if (!user.loggedIn) {
+            navigation.main.navigate('Login')
+        } else {
+            this.setState({ user: user.data })
+        }
+    }
+
     goToProfile () {
         console.log('Profile')
     }
 
     render() {
-        const { navigate } = this.props.navigation;
+        const navigate = navigation.main.navigate;
+        const avatarSource = isOffline ? require('../assets/images/user/avatar.jpg') : { uri: this.state.Image };
         return (
             <ScrollView contentContainerStyle={styles.container}>
                 <View style={styles.header}>
                     <Image style={styles.headerImage} source={require('../assets/images/tehran.jpg')} />
                     <TouchableOpacity activeOpacity={0.8} style={styles.userImageContainer}>
-                        <Image style={styles.userImage} source={require('../assets/images/user/avatar.jpg')} onPress={this.goToProfile.bind(this)} />
+                        <Image style={styles.userImage} source={avatarSource} onPress={this.goToProfile.bind(this)} />
                     </TouchableOpacity>
                 </View>
                 <View>
                     <TouchableOpacity activeOpacity={0.8} >
                         <Text style={styles.detailsContainer}>
-                            <Text style={styles.detailsName}>علیرضا شیخ الملوکی </Text>
+                            <Text style={styles.detailsName}>{this.state.user.Name} </Text>
                             <FontAwesome style={styles.arrowLeft}>{Icons.chevronLeft}</FontAwesome>
                         </Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.quickShow}>
-                    <QuickShowItem amount={120} first title="badge" />
-                    <QuickShowItem amount={1125} title="rank" />
-                    <QuickShowItem amount={250} last title="score" />
+                    <QuickShowItem navigate={navigate} amount={120} first title="badge" />
+                    <QuickShowItem navigate={navigate} amount={1125} title="rank" />
+                    <QuickShowItem navigate={navigate} amount={250} last title="score" />
                 </View>
                 <View style={styles.tabsContainer}>
-                    <UserDataTabNavigator resizeToContent={true} style={styles.tabs} />
+                    <UserDataTabNavigator navigate={navigate} resizeToContent={true} style={styles.tabs} />
                 </View>
             </ScrollView>
         );

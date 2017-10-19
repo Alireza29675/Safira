@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import user from './model/user'
+import navigation from './model/navigation'
+import { request } from './model/server'
 
 import {
     View,
@@ -18,7 +21,7 @@ class LoginScreen extends Component {
     login () {
         const username = this.refs.username._lastNativeText;
         const password = this.refs.password._lastNativeText;
-        // do something with them
+        user.login(username, password)
     }
 
     render() {

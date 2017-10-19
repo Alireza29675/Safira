@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 
 import CarListItem from './CarListItem'
+import {request} from "../model/server";
+import user from "../model/user";
 
 class UserCarsTab extends Component {
     static navigationOptions = {
@@ -15,23 +17,34 @@ class UserCarsTab extends Component {
         header: null
     };
 
+    constructor (props) {
+        super(props);
+        this.state = {
+            cars: []
+        }
+    }
+
+    componentWillMount () {
+        request('/CarList', { username: user.auth.username, password: user.auth.password }, response => {
+            for (let car of response.data) {
+                car.key = car.ID;
+            }
+            this.setState({ cars: response.data });
+        })
+    }
+
     render() {
-        const {navigate} = this.props.navigation;
+        const { navigate } = this.props.navigation;
         return (
             <ScrollView>
                 <FlatList
-                    data={[
-                        {key: 1, title: 'پژو 405 نقره ای', number: '10ج315 | ایران 20'},
-                        {key: 2, title: 'پژو 405 نقره ای', number: '10ج315 | ایران 20'},
-                        {key: 3, title: 'پژو 405 نقره ای', number: '10ج315 | ایران 20'},
-                        {key: 4, title: 'پژو 405 نقره ای', number: '10ج315 | ایران 20'},
-                        {key: 5, title: 'پژو 405 نقره ای', number: '10ج315 | ایران 20'},
-                    ]}
+                    data={this.state.cars}
                     renderItem={({item}) =>
                         <CarListItem
                             key={item.key}
-                            title={item.title}
-                            number={item.number} />
+                            id={item.key}
+                            title={item.Title}
+                            number={item.Number || '31ج152 | ایران 68'} />
                     }
                 />
             </ScrollView>

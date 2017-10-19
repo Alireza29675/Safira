@@ -7,7 +7,7 @@ import MainScreen from "./src/MainScreen";
 import CarScreen from "./src/CarScreen";
 
 export default StackNavigator({
-    Car: { screen: CarScreen },
     Main: { screen: MainScreen },
+    Car: { screen: CarScreen },
     Login: { screen: LoginScreen },
 });

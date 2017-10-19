@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
+import navigation from './model/navigation'
 
 import {
     View,
@@ -10,29 +11,34 @@ import {
     TouchableOpacity
 } from 'react-native';
 
-import UserDataTabNavigator from './components/UserDataTabNavigator'
+import CarDataTabNavigator from './components/CarDataTabNavigator'
 import BackButton from './components/BackButton'
 import GoogleMaps from './components/GoogleMaps'
 
+const currentCar = {};
+
 class CarScreen extends Component {
-    static navigationOptions = {
-        title: 'پژو پارس نقره ای',
-        headerLeft: <BackButton onPress={() => console.log('Hey')} />,
-        headerTitleStyle: {
-            alignSelf: 'center',
-            fontFamily: 'iransans',
-            fontSize: 17,
-            left: -24
+    static navigationOptions = ({navigation}) => {
+        currentCar.id = navigation.state.params.id;
+        currentCar.title = navigation.state.params.title;
+        return {
+            title: navigation.state.params.title,
+            headerLeft: <BackButton onPress={() => navigation.navigate('Main')}/>,
+            headerTitleStyle: {
+                alignSelf: 'center',
+                fontFamily: 'iransans',
+                fontSize: 17,
+                left: -24
+            }
         }
     };
 
     render() {
-        const { navigate } = this.props.navigation;
         return (
             <ScrollView contentContainerStyle={styles.container}>
                 <GoogleMaps />
                 <View style={styles.tabsContainer}>
-                    <UserDataTabNavigator resizeToContent={true} style={styles.tabs} />
+                    <CarDataTabNavigator screenProps={currentCar} style={styles.tabs} />
                 </View>
             </ScrollView>
         );
@@ -44,11 +50,11 @@ const styles = StyleSheet.create({
     // App
     container: {
         alignItems: 'stretch',
-        flexDirection: 'column'
+        flexDirection: 'column',
     },
     // Tabs
     tabsContainer: {
-        height: 200
+        height: 300,
     },
     tabs: {
         flex: 1
