@@ -22,14 +22,16 @@ const statusInPersian = {
 class NotificationListItem extends Component {
 
     render() {
-        const containerStyle = [styles.container, { borderRightColor: colors[this.props.status] }];
+        const color = colors[this.props.status];
+        const containerStyle = [styles.container, { borderRightColor: color }];
+        const statusStyle = [styles.status, { color: color }];
         return (
             <TouchableOpacity activeOpacity={0.8} style={containerStyle}>
                 <View style={styles.header}>
                     <Text style={styles.date}>{this.props.date}</Text>
-                    <Text style={styles.status}>{statusInPersian[this.props.status]}</Text>
+                    <Text style={statusStyle}>{statusInPersian[this.props.status]}</Text>
                 </View>
-                <Text style={styles.message}>{this.props.message}</Text>
+                <Text style={styles.title}>{this.props.title}</Text>
             </TouchableOpacity>
         );
     }
@@ -61,7 +63,7 @@ const styles = StyleSheet.create({
         fontFamily: 'iransans',
         fontSize: 13
     },
-    message: {
+    title: {
         fontFamily: 'iransans',
         fontSize: 15,
         color: '#333',

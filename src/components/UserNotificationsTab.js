@@ -21,18 +21,18 @@ class UserCarsTab extends Component {
             <ScrollView>
                 <FlatList
                     data={[
-                        {key: 1, status: 'danger', message: 'این یک اعلان است', date: '20 خرداد 96'},
-                        {key: 2, status: 'warning', message: 'این یک اعلان است', date: '20 خرداد 96'},
-                        {key: 3, status: 'warning', message: 'این یک اعلان است', date: '20 خرداد 96'},
-                        {key: 4, status: 'success', message: 'این یک اعلان است', date: '20 خرداد 96'},
-                        {key: 5, status: 'danger', message: 'این یک اعلان است', date: '20 خرداد 96'},
+                        {key: 1, status: 'danger', title: 'این یک اعلان است', date: '20 خرداد 96'},
+                        {key: 2, status: 'warning', title: 'این یک اعلان نیست که در آن متی طولانی را تست میکنیم.', date: '20 خرداد 96'},
+                        {key: 3, status: 'warning', title: 'این یک اعلان است', date: '20 خرداد 96'},
+                        {key: 4, status: 'success', title: 'این یک اعلان است', date: '20 خرداد 96'},
+                        {key: 5, status: 'danger', title: 'این یک اعلان است', date: '20 خرداد 96'},
                     ]}
                     renderItem={({item}) =>
                         <NotificationListItem
                             key={item.key}
                             status={item.status}
                             date={item.date}
-                            message={item.message} />
+                            title={item.title} />
                     }
                 />
             </ScrollView>
