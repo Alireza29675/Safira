@@ -21,11 +21,10 @@ class LoginScreen extends Component {
     login () {
         const username = this.refs.username._lastNativeText;
         const password = this.refs.password._lastNativeText;
-        user.login(username, password)
+        user.login(username, password);
     }
 
     render() {
-        const {navigate} = this.props.navigation;
         return (
             <View style={styles.container}>
                 <Image source={require('../assets/images/logo.png')} style={styles.logo} />

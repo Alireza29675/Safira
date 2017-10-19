@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native'
+import { AsyncStorage, ToastAndroid } from 'react-native'
 import { request } from "./server"
 import navigation from './navigation'
 
@@ -50,7 +50,7 @@ class User {
                 });
             } else {
                 if (!silent) {
-                    console.log('Wrong user pass')
+                    ToastAndroid.showWithGravity('نام کاربری یا گذرواژه اشتباه است. لطفا دوباره تلاش کنید', ToastAndroid.SHORT, ToastAndroid.BOTTOM)
                 }
             }
         })
