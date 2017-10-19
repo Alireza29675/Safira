@@ -2,13 +2,6 @@ import { AsyncStorage } from 'react-native'
 import { request } from "./server"
 import navigation from './navigation'
 
-/* UNCOMMENT TO LOGOUT
-*
-AsyncStorage.setItem('@username', '');
-AsyncStorage.setItem('@password', '');
-/*
-*/
-
 class User {
     constructor () {
         this.auth = {
@@ -61,6 +54,18 @@ class User {
                 }
             }
         })
+    }
+    async logout () {
+        this.auth.username = '';
+        this.auth.password = '';
+        this.auth.loggedIn = false;
+        try {
+            await AsyncStorage.setItem('@username', '');
+            await AsyncStorage.setItem('@password', '');
+        } catch (e) {
+            console.error(`Logout error (Async Storage): ${e}`)
+        }
+        navigation.main.navigate('Login')
     }
     get loggedIn () {
         return this.auth.loggedIn;

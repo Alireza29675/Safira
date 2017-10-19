@@ -41,7 +41,7 @@ class MainScreen extends Component {
     }
 
     goToProfile () {
-        console.log('Profile')
+        navigation.main.navigate('Profile')
     }
 
     render() {
@@ -51,12 +51,12 @@ class MainScreen extends Component {
             <ScrollView contentContainerStyle={styles.container}>
                 <View style={styles.header}>
                     <Image style={styles.headerImage} source={require('../assets/images/tehran.jpg')} />
-                    <TouchableOpacity activeOpacity={0.8} style={styles.userImageContainer}>
+                    <TouchableOpacity activeOpacity={0.8} style={styles.userImageContainer} onPress={this.goToProfile.bind(this)}>
                         <Image style={styles.userImage} source={avatarSource} onPress={this.goToProfile.bind(this)} />
                     </TouchableOpacity>
                 </View>
                 <View>
-                    <TouchableOpacity activeOpacity={0.8} >
+                    <TouchableOpacity activeOpacity={0.8} onPress={this.goToProfile.bind(this)}>
                         <Text style={styles.detailsContainer}>
                             <Text style={styles.detailsName}>{this.state.user.Name} </Text>
                             <FontAwesome style={styles.arrowLeft}>{Icons.chevronLeft}</FontAwesome>
