@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import {
-    View,
+    TouchableOpacity,
     Text,
     StyleSheet
 } from 'react-native';
@@ -10,10 +10,10 @@ class CarListItem extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <TouchableOpacity activeOpacity={0.8} style={styles.container}>
                 <Text style={styles.number}>{this.props.number}</Text>
                 <Text style={styles.title}>{this.props.title}</Text>
-            </View>
+            </TouchableOpacity>
         );
     }
 }
@@ -25,7 +25,8 @@ const styles = StyleSheet.create({
         height: 60,
         marginLeft: '3%',
         marginTop: 13,
-        borderRadius: 10,
+        borderRightWidth: 5,
+        borderRightColor: '#555',
         justifyContent: 'space-between',
         alignItems: 'center',
         paddingLeft: 20,
