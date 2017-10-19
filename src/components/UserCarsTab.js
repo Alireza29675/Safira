@@ -6,6 +6,8 @@ import {
     Text,
 } from 'react-native';
 
+import CarListItem from './CarListItem'
+
 class UserCarsTab extends Component {
     static navigationOptions = {
         title: 'ماشین های شما',
@@ -16,7 +18,10 @@ class UserCarsTab extends Component {
         const {navigate} = this.props.navigation;
         return (
             <View>
-                <Text>Car Tab</Text>
+                <CarListItem title='پژو 405 نقره ای' number="10ج315 | ایران 20" />
+                <CarListItem title='پژو 405 نقره ای' number="10ج315 | ایران 20" />
+                <CarListItem title='پژو 405 نقره ای' number="10ج315 | ایران 20" />
+                <CarListItem title='پژو 405 نقره ای' number="10ج315 | ایران 20" />
             </View>
         );
     }
