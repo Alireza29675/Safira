@@ -41,6 +41,7 @@
 		DAB8166850EB4D1D9BE12314 /* iransans_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C7D0A27B09D1422BB86061F8 /* iransans_medium.ttf */; };
 		23520C5F3E9D44D391F1502C /* iransans_ultralight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 387663742D6D47F79C80016D /* iransans_ultralight.ttf */; };
 		E5684B7BE57C46B78B075036 /* iransans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4087BFD15EA3400E96D106B1 /* iransans.ttf */; };
+		F2DD710857A442D6924FDB5D /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 53F85ABC7755474FAC305815 /* FontAwesome.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -273,6 +274,7 @@
 		C7D0A27B09D1422BB86061F8 /* iransans_medium.ttf */ = {isa = PBXFileReference; name = "iransans_medium.ttf"; path = "../assets/fonts/iransans_medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		387663742D6D47F79C80016D /* iransans_ultralight.ttf */ = {isa = PBXFileReference; name = "iransans_ultralight.ttf"; path = "../assets/fonts/iransans_ultralight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		4087BFD15EA3400E96D106B1 /* iransans.ttf */ = {isa = PBXFileReference; name = "iransans.ttf"; path = "../assets/fonts/iransans.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		53F85ABC7755474FAC305815 /* FontAwesome.otf */ = {isa = PBXFileReference; name = "FontAwesome.otf"; path = "../assets/fonts/FontAwesome.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -523,6 +525,7 @@
 				C7D0A27B09D1422BB86061F8 /* iransans_medium.ttf */,
 				387663742D6D47F79C80016D /* iransans_ultralight.ttf */,
 				4087BFD15EA3400E96D106B1 /* iransans.ttf */,
+				53F85ABC7755474FAC305815 /* FontAwesome.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -902,6 +905,7 @@
 				DAB8166850EB4D1D9BE12314 /* iransans_medium.ttf in Resources */,
 				23520C5F3E9D44D391F1502C /* iransans_ultralight.ttf in Resources */,
 				E5684B7BE57C46B78B075036 /* iransans.ttf in Resources */,
+				F2DD710857A442D6924FDB5D /* FontAwesome.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

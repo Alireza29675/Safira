@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
+import FontAwesome, { Icons } from 'react-native-fontawesome';
 
 import {
     View,
     Text,
     Image,
     StyleSheet,
+    Platform,
     TouchableOpacity
 } from 'react-native';
+
+import UserDataTabNavigator from './components/UserDataTabNavigator'
 
 class MainScreen extends Component {
     static navigationOptions = {
@@ -21,7 +25,7 @@ class MainScreen extends Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <View>
+            <View style={styles.container}>
                 <View style={styles.header}>
                     <Image style={styles.headerImage} source={require('../assets/images/tehran.jpg')} />
                     <TouchableOpacity activeOpacity={0.8} style={styles.userImageContainer}>
@@ -29,7 +33,20 @@ class MainScreen extends Component {
                     </TouchableOpacity>
                 </View>
                 <View>
-
+                    <TouchableOpacity activeOpacity={0.8} >
+                        <Text style={styles.detailsContainer}>
+                            <Text style={styles.detailsName}>علیرضا شیخ الملوکی </Text>
+                            <FontAwesome style={styles.arrowLeft}>{Icons.chevronLeft}</FontAwesome>
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.quickShow}>
+                    <TouchableOpacity style={styles.quickShowItem}><Text>Badges</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.quickShowItem}><Text>Rank</Text></TouchableOpacity>
+                    <TouchableOpacity style={[styles.quickShowItem, styles.quickShowLastItem]}><Text>Score</Text></TouchableOpacity>
+                </View>
+                <View style={styles.tabsContainer}>
+                    <UserDataTabNavigator style={styles.tabs} />
                 </View>
             </View>
         );
@@ -37,6 +54,12 @@ class MainScreen extends Component {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        alignItems: 'stretch',
+        flexDirection: 'column'
+    },
+
+    // Header styles
     header: {
         width: '100%',
         height: 170
@@ -49,6 +72,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         left: '50%',
         bottom: -40,
+        zIndex: 99,
         transform: [{ translateX: -70 }]
     },
     userImage: {
@@ -57,6 +81,47 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderColor: 'white',
         borderWidth: 2,
+    },
+
+    // Profile details styles
+    detailsContainer: {
+        marginTop: 60,
+        textAlign: 'center',
+        flexWrap: 'wrap',
+        flexDirection: 'column'
+    },
+    detailsName: {
+        fontFamily: 'iransans',
+        fontWeight: 'bold',
+        fontSize: 20
+    },
+    quickShow: {
+        backgroundColor: 'white',
+        borderWidth: 1,
+        borderColor: '#CCC',
+        width: '80%',
+        height: 50,
+        alignSelf: 'center',
+        marginTop: 20,
+        borderRadius: 12,
+        flexDirection: 'row'
+    },
+    quickShowItem: {
+        flex: 1,
+        borderRightColor: '#CCC',
+        borderRightWidth: 1
+    },
+    quickShowLastItem: {
+        borderRightWidth: 0
+    },
+
+    // Tabs
+    tabsContainer: {
+        height: 200,
+        marginTop: 30
+    },
+    tabs: {
+        flex: 1
     }
 });
 
