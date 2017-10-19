@@ -3,6 +3,7 @@ import FontAwesome, { Icons } from 'react-native-fontawesome';
 
 import {
     View,
+    ScrollView,
     Text,
     Image,
     StyleSheet,
@@ -25,7 +26,7 @@ class MainScreen extends Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <View style={styles.container}>
+            <ScrollView contentContainerStyle={styles.container}>
                 <View style={styles.header}>
                     <Image style={styles.headerImage} source={require('../assets/images/tehran.jpg')} />
                     <TouchableOpacity activeOpacity={0.8} style={styles.userImageContainer}>
@@ -46,9 +47,9 @@ class MainScreen extends Component {
                     <QuickShowItem amount={250} last title="score" />
                 </View>
                 <View style={styles.tabsContainer}>
-                    <UserDataTabNavigator style={styles.tabs} />
+                    <UserDataTabNavigator resizeToContent={true} style={styles.tabs} />
                 </View>
-            </View>
+            </ScrollView>
         );
     }
 }

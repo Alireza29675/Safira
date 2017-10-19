@@ -22,6 +22,7 @@ const UserDataTabNavigator = TabNavigator({
         },
     },
 }, {
+    lazy: true,
     headerMode: 'none',
     tabBarOptions: {
         activeTintColor: '#5fb5be',
