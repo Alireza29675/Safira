@@ -7,6 +7,7 @@ import {
 
 import CarDetailsTab from './CarDetailsTab'
 import CarNotificationsTab from './CarNotificationsTab'
+import CarControlTab from './CarControlTab'
 
 const CarDataTabNavigator = TabNavigator({
     Notifications: {
@@ -19,6 +20,12 @@ const CarDataTabNavigator = TabNavigator({
         screen: CarDetailsTab,
         navigationOptions: {
             tabBarIcon: ({ tintColor }) => <FontAwesome style={{ color: tintColor, fontSize: 20 }}>{Icons.car}</FontAwesome>
+        },
+    },
+    Control: {
+        screen: CarControlTab,
+        navigationOptions: {
+            tabBarIcon: ({ tintColor }) => <FontAwesome style={{ color: tintColor, fontSize: 20 }}>{Icons.dashboard}</FontAwesome>
         },
     }
 }, {

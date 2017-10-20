@@ -32,7 +32,6 @@ class CarDetailsTab extends Component {
 
     componentWillMount () {
         requestWithUserInfo('/CarDetail', { ID: this.props.screenProps.id }, response => {
-            console.log(response.data)
             const car = this.state.car;
             const data = response.data;
             car.model = data.Model;

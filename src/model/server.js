@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import user from './user'
 
-const server = 'http://138.201.202.203:26321/';
+const server = 'http://192.168.110.51:26321/';
 const serviceAddr = server + 'wcf/omidservice.svc/';
 
 export const getURL = (path) => `${server}${path}`;

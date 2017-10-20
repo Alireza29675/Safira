@@ -48,7 +48,7 @@ class MainScreen extends Component {
         const navigate = navigation.main.navigate;
         const avatarSource = isOffline ? require('../assets/images/user/avatar.jpg') : { uri: this.state.Image };
         return (
-            <ScrollView contentContainerStyle={styles.container}>
+            <View style={styles.container}>
                 <View style={styles.header}>
                     <Image style={styles.headerImage} source={require('../assets/images/tehran.jpg')} />
                     <TouchableOpacity activeOpacity={0.8} style={styles.userImageContainer} onPress={this.goToProfile.bind(this)}>
@@ -71,7 +71,7 @@ class MainScreen extends Component {
                 <View style={styles.tabsContainer}>
                     <UserDataTabNavigator navigate={navigate} resizeToContent={true} style={styles.tabs} />
                 </View>
-            </ScrollView>
+            </View>
         );
     }
 }
@@ -85,22 +85,22 @@ const styles = StyleSheet.create({
     // Header styles
     header: {
         width: '100%',
-        height: 170
+        height: 160
     },
     headerImage: {
         width: '100%',
-        height: 170
+        height: 160
     },
     userImageContainer: {
         position: 'absolute',
         left: '50%',
-        bottom: -40,
+        bottom: -35,
         zIndex: 99,
         transform: [{ translateX: -70 }]
     },
     userImage: {
-        width: 140,
-        height: 140,
+        width: 130,
+        height: 130,
         borderRadius: 10,
         borderColor: 'white',
         borderWidth: 2,
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
 
     // Profile details styles
     detailsContainer: {
-        marginTop: 60,
+        marginTop: 50,
         textAlign: 'center',
         flexWrap: 'wrap',
         flexDirection: 'column'
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
         width: '85%',
         height: 50,
         alignSelf: 'center',
-        marginTop: 20,
+        marginTop: 15,
         borderRadius: 12,
         flexDirection: 'row',
         backgroundColor: '#BBB',
@@ -133,8 +133,8 @@ const styles = StyleSheet.create({
 
     // Tabs
     tabsContainer: {
-        height: 200,
-        marginTop: 30
+        height: 250,
+        marginTop: 20
     },
     tabs: {
         flex: 1
