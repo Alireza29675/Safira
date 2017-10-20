@@ -5,7 +5,9 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "emulator": "cd /Android-SDK/tools && emulator -avd Pixel_API_25"
+    "android": "react-native run-android",
+    "emulator": "cd /Android-SDK/tools && emulator -avd Pixel_API_25",
+    "ecu": "python ./ecu-simulator/ecu.py"
   },
   "dependencies": {
     "axios": "^0.16.2",
